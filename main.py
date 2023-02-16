@@ -62,7 +62,7 @@ async def on_message(message):
         await message.channel.send(msg)
 
     # Scoreboard
-    elif message.channel.id == 1072237375662604308 and message.content == "!scoreboard": # Replace `channel_id` with the actual ID# of the channel you want the command restricted to
+    elif message.channel.id == 'channel id' and message.content == "!scoreboard": # Replace `channel_id` with the actual ID# of the channel you want the command restricted to
         sorted_scores = sorted(db["scoreboard"].items(), key=lambda x: x[1], reverse=True)
         msg = "Full Scoreboard:\n"
         for i, (user, score) in enumerate(sorted_scores):
@@ -104,7 +104,7 @@ async def on_message(message):
         await message.channel.send(f'{brand} {collection} - Notes: {scent}')
 
     # Guessing Game - Practice
-    elif message.channel.id == 1072237375662604308 and message.content == '!practice': # Replace `channel_id` with the actual ID# of the channel you want the command restricted to
+    elif message.channel.id == 'channel id' and message.content == '!practice': # Replace `channel_id` with the actual ID# of the channel you want the command restricted to
 
         #values
         glist = db["game_list"]
@@ -113,7 +113,7 @@ async def on_message(message):
         collection = str(db[collectionno][1])
         scent = str(db[collectionno][2])
         hint = str(db[collectionno][3])
-        channel = client.get_channel(1072237375662604308)  # Replace `channel_id` with the actual ID# of the channel you want to send the message to
+        channel = client.get_channel('channel id')  # Replace `channel_id` with the actual ID# of the channel you want to send the message to
       
         await channel.send(f'I am thinking of a scent from {brand} with the following notes: {scent}')
 
@@ -197,7 +197,7 @@ async def random_message():
         collection = str(db[collectionno][1])
         scent = str(db[collectionno][2])
         hint = str(db[collectionno][3])
-        channel = client.get_channel(730538828661522493)  # Replace `channel_id` with the actual ID# of the channel you want to send the message to
+        channel = client.get_channel('channel id')  # Replace `channel_id` with the actual ID# of the channel you want to send the message to
       
         await channel.send(f'I am thinking of a scent from {brand} with the following notes: {scent}')
 
@@ -246,7 +246,7 @@ async def hard_random_message():
         collection = str(db[collectionno][1])
         scent = str(db[collectionno][2])
         hint = str(db[collectionno][3])
-        channel = client.get_channel(730538828661522493)  # Replace `channel_id` with the actual ID# of the channel you want to send the message to
+        channel = client.get_channel('channel id')  # Replace `channel_id` with the actual ID# of the channel you want to send the message to
       
         await channel.send(f'[HARD MODE] I am thinking of a scent from ??? with the following notes: {scent}')
 
@@ -295,7 +295,7 @@ async def easy_random_message():
         collection = str(db[collectionno][1])
         scent = str(db[collectionno][2])
         hint = str(db[collectionno][3])
-        channel = client.get_channel(730538828661522493)  # Replace `channel_id` with the actual ID# of the channel you want to send the message to
+        channel = client.get_channel('channel id')  # Replace `channel_id` with the actual ID# of the channel you want to send the message to
       
         await channel.send(f'I am thinking of the brand who created the scent {collection}.')
 
@@ -332,7 +332,7 @@ async def duck_game():
         interval = random.uniform(3600, 43200)  # Random interval between 1 and 12 hours
         await asyncio.sleep(interval)
       
-        channel = client.get_channel(730538828661522493)  # Replace `channel_id` with the actual ID# of the channel you want to send the message to
+        channel = client.get_channel('channel id')  # Replace `channel_id` with the actual ID# of the channel you want to send the message to
         await channel.send("・゜゜・。。・゜゜\\\_O<")
 
         while True:
