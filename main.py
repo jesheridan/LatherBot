@@ -4,6 +4,7 @@ import re
 import random
 import asyncio
 from fuzzywuzzy import process
+from unidecode import unidecode
 from replit import db
 
 # Only needed when editing database
