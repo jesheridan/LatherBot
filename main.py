@@ -59,7 +59,8 @@ async def on_message(message):
         top_10 = sorted_scores[:10]
         msg = "Top 10 scores:\n"
         for i, (user, score) in enumerate(top_10):
-            msg += f"{i+1}. {user}: {score}\n"
+            rounded_score = round(score, 1)
+            msg += f"{i+1}. {user}: {rounded_score}\n"
         await message.channel.send(msg)
 
     # Scoreboard
@@ -67,15 +68,16 @@ async def on_message(message):
         sorted_scores = sorted(db["scoreboard"].items(), key=lambda x: x[1], reverse=True)
         msg = "Full Scoreboard:\n"
         for i, (user, score) in enumerate(sorted_scores):
-            msg += f"{i+1}. {user}: {score}\n"
+            rounded_score = round(score, 1)
+            msg += f"{i+1}. {user}: {rounded_score}\n"
         await message.channel.send(msg)      
 
     # User's score
     elif message.content.lower() == "!score":
         score_id = str(message.author.display_name) 
         if score_id in db["scoreboard"]:
-            await message.channel.send(f'{message.author.display_name} has a score of {db["scoreboard"][score_id]}.')
-        else:
+            rounded_score = round(db["scoreboard"][score_id], 1)
+            await message.channel.send(f'{message.author.display_name} has a score of {rounded_score}.')
             await message.channel.send(f'{message.author.display_name} does not have a score yet.')
       
     #Lookup a scent
@@ -223,7 +225,9 @@ async def random_message():
                     else:
                         db["scoreboard"][user_id] = 1
                       
-                    await channel.send(f'Congrats {response.author.display_name}! The correct answer was {collection} by {brand}. Your current score is {db["scoreboard"][user_id]}.')
+                    rounded_score = round(db["scoreboard"][user_id], 1)
+                    await channel.send(f'Congrats {response.author.display_name}! The correct answer was {collection} by {brand}. Your current score is {rounded_score}.')
+                    break
                     break
                       
             except asyncio.TimeoutError:
@@ -272,7 +276,8 @@ async def hard_random_message():
                     else:
                         db["scoreboard"][user_id] = 1
                       
-                    await channel.send(f'Congrats {response.author.display_name}! The correct answer was {collection} by {brand}. Your current score is {db["scoreboard"][user_id]}.')
+                    rounded_score = round(db["scoreboard"][user_id], 1)
+                    await channel.send(f'Congrats {response.author.display_name}! The correct answer was {collection} by {brand}. Your current score is {rounded_score}.')
                     break  
                       
             except asyncio.TimeoutError:
@@ -320,7 +325,8 @@ async def easy_random_message():
                     else:
                         db["scoreboard"][user_id] = 1
                       
-                    await channel.send(f'Congrats {response.author.display_name}! The correct answer was {brand} created {collection}. Your current score is {db["scoreboard"][user_id]}.')
+                    rounded_score = round(db["scoreboard"][user_id], 1)  
+                    await channel.send(f'Congrats {response.author.display_name}! The correct answer was {brand} created {collection}. Your current score is {rounded_score}.')
                     break
                   
             except asyncio.TimeoutError:
