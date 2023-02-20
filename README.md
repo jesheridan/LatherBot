@@ -21,7 +21,7 @@ The commands available to this bot in discord are:
 - !practice - runs an unscored practice version of the scent game. This command is restrict to a specific channel to avoid spamming in general chat.
 - !paa - pulls up important information to r/wetshaving about that vendor
 - !hello - simple response from the bot. First command I got working, so I left it in.
-- !bang - A simple chat version of the game duck hunt. On a random timer the bot will release an assci duck. First user to respond either !bang or .bang gets credit for shooting it down.
+- !bang - A simple chat version of the game duck hunt. On a random timer the bot will release an ascii duck. First user to respond either !bang or .bang gets credit for shooting it down.
 
 The scored version of the scent game has 3 modes - regular, hard, and brand - each of which run on seperate random timers which can be adjusted for preference. Each of those games are also channel specific, so you'll need to update the code to point to a channel your bot is active on. 
 
